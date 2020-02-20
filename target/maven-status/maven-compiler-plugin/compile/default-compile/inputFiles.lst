@@ -1,0 +1,11 @@
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\service\impl\ProduitServiceImpl.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\constants\TypeDeProduit.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\model\User.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\service\ProduitService.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\dao\ProduitDAO.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\dao\UserDAO.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\dao\impl\UserDAOMock.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\dao\impl\ProduitDAOMock.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\controller\ProduitController.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\controller\UtilisateurControler.java
+M:\workspace\GestionDeProduitsTest\src\main\java\com\sqli\demoMVC\model\Produit.java
