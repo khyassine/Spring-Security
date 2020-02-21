@@ -1,7 +1,10 @@
 package com.sqli.demoMVC.model;
 
-public class User {
+import com.sun.javafx.beans.IDProperty;
 
+public class User {
+	
+	private int id;
 	private String userName;
 	private String password;
 	private String role;

@@ -22,7 +22,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         <security:form-login   authentication-failure-url="/Access_Denied"/>
         <security:access-denied-handler error-page="/Access_Denied" />
     </security:http>
-
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="user" password="user" authorities="ROLE_USER" />
+                <security:user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
 
 <!--    <security:ldap-server root="o=dude" ldif="classpath:ldap/dude.ldif"/>-->
 
