@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.sqli.demoMVC.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,7 +23,9 @@ public class ProduitController {
 
 	@Autowired
 	private ProduitService produitService;
-	
+	@Autowired
+    private UserService userService;
+
 	public ProduitController() {
 		super();
 	}
@@ -31,6 +34,7 @@ public class ProduitController {
     public ModelAndView listerProduits(ModelAndView pModel) throws IOException {
         List<Produit> listProduit = produitService.getAll();
         pModel.addObject("listProduit", listProduit);
+        pModel.addObject("user",userService.getUsername());
         pModel.setViewName("accueil");
         return pModel;
     }

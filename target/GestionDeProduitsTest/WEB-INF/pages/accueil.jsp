@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,7 +29,19 @@
 <title>Gestion des produits</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container"><br><br>
+		<div style="text-align: left">
+			<h4>Bonjour <sec:authentication property="principal.username"/>!</h4>
+			<div style="float: right;">
+				<form id="logout" action="<%=request.getContextPath()%>/logout"
+					  method="post" >
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<button type="submit" value="logout" class="btn btn-default btn-sm">Log
+						out</button>
+				</form>
+			</div>
+		</div>
+
 		<div align="center">
 
 			<h1>Liste des produits</h1>
@@ -47,18 +59,22 @@
 							<td>${p.libelle}</td>
 							<td>${p.prix}</td>
 							<td>${p.type.libelleFamille}</td>
-							<td><a href="modifierProduit?id=${p.id}">Edit</a>
+							<td>
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<button><a href="modifierProduit?id=${p.id}">Edit</a></button>
+								</sec:authorize>
 
-
-								<button disabled>Edit</button> &nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="supprimerProduit?id=${p.id}">Delete</a>
-
-
-								<button disabled>Delete</button></td>
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<button ><a href="supprimerProduit?id=${p.id}">Delete</a></button>
+								</sec:authorize>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+			<sec:authorize access="hasRole('ROLE_ADMIN')" >
+			<div style="text-align: center;">Ajouter un nouveau produit <a href="ajouterProduit">ici</a></div>
+			</sec:authorize>
 		</div>
 	</div>
 </body>
